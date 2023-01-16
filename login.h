@@ -2,7 +2,18 @@
 #include <string>
 #include "Users.h"
 #include "Seller.h"
+#include <exception>
+#include <fstream>
 
+void save_data(Users users)
+{
+
+    std::ofstream file;
+    file.open("Users.txt");
+    file << users;
+    file.close();
+
+}
 using namespace std;
 
 Seller* login(Users &users){
@@ -48,4 +59,7 @@ if (answer =='n')
     cout<<users.get_user(username).m_name<<"the second";
     return &(users.get_user(username));
 }
+else
+    save_data(users);
+    throw std::invalid_argument("you didn't type the right option");
 }

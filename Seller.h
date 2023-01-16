@@ -3,6 +3,7 @@
 #include <vector>
 #include "Book.h"
 #include <map>
+#include <string>
 
 class Seller
 {
@@ -16,12 +17,9 @@ class Seller
         void print_books();
         std::string m_password;
         std::string m_name;
+        friend std::ostream& operator<<(std::ostream& os, const Seller& Seller);
     private:
         std::string m_address;
         std::map <std::string, Book> my_books;
-
-
-
-
 
 };

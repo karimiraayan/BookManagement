@@ -1,0 +1,7 @@
+g,hdg,bax,
+luba,123l,luba zherno,zwingliStr.6
+mamal,mamil,mohammad,tehran,zedbazi,bahal,23,104,
+maman,123m,noushin karimi,theran.6
+rayan,Basket7.5,rayan karimi,zwingliStr.6,barbar,raknag,24,22,
+razi,123r,razi karimi,tehran
+rezabala,123,reza,abriz

@@ -5,19 +5,62 @@
 #include <string>
 #include <map>
 #include "login.h"
-
-
+#include <fstream>
+#include <sstream>
 
 using namespace std;
+
+void read_data(Users &users){
+    auto file = ifstream();
+    file.open("Users.txt");
+    while (!file.eof())
+    {
+        string  read_line;
+        string temp;
+        stringstream stream;
+        getline(file, read_line);
+        if(read_line.empty())
+            continue;
+        stream<<read_line;
+        getline(stream,temp,',');
+        string username=temp;
+        getline(stream,temp,',');
+        string password=temp;
+        getline(stream,temp,',');
+        string name=temp;
+        getline(stream,temp,',');
+        string address=temp;
+        users.creat_new_user(username,password,name,address);
+        while (!stream.eof())
+        {
+        getline(stream,temp,',');
+        if(temp.empty())
+            break;
+        string name=temp;
+        getline(stream,temp,',');
+        string genre=temp;
+        getline(stream,temp,',');
+        string year=temp;
+        getline(stream,temp,',');
+        string price=temp;
+        users.get_user(username).add_book(name,stoi(year),genre,stod(price));
+        }
+    }
+
+}
+
+
 
 int main ()
 {
 
 Users users;
-users.creat_new_user("rayan","Basket7.5","rayan karimi","zwingliStr.6");
+
+read_data(users);
+/* users.creat_new_user("rayan","Basket7.5","rayan karimi","zwingliStr.6");
 users.creat_new_user("razi","123r","razi karimi","tehran");
 users.creat_new_user("luba","123l","luba zherno","zwingliStr.6");
-users.creat_new_user("maman","123m","noushin karimi","theran.6");
+users.creat_new_user("maman","123m","noushin karimi","theran.6"); */
 while (true)
 {
 auto logedin_user = login(users);

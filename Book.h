@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iostream>
 
 
 class Book
@@ -11,6 +12,7 @@ class Book
         void print_book();
         void print_book_full();
         std::string get_name();
+        friend std::ostream& operator<<(std::ostream& os, const Book& book);
     private:
         std::string m_name;
         short m_year;

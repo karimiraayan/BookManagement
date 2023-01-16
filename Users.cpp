@@ -19,3 +19,11 @@ Seller& Users::get_user(std::string username)
     else
         throw "the username doesn't exist!!";
 }
+std::ostream& operator<<(std::ostream& os,const Users &users)
+{
+    for (auto [username, seller] : users.seller_list)
+    {
+        os<<username<<','<<seller<<'\n';
+    }
+return os;
+}

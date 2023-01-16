@@ -1,6 +1,5 @@
 #include "Seller.h"
 #include <algorithm>
-#include <iostream>
 
 
 
@@ -46,4 +45,13 @@ void Seller::print_books()
     for (auto [name, book] : my_books)
         book.print_book();
 
+}
+std::ostream& operator<<(std::ostream& os, const Seller& seller)
+{
+    os<<seller.m_password<<","<<seller.m_name<<','<<seller.m_address;
+    for (auto &&[name,book] :seller.my_books)
+    {
+        os<<","<<book;
+    }
+    return os;
 }

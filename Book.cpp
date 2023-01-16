@@ -1,5 +1,4 @@
 #include "Book.h"
-#include <iostream>
 #include <format>
 
 using namespace std;
@@ -28,4 +27,10 @@ void Book::print_book_full()
 std::string Book::get_name()
 {
     return m_name;
+}
+
+std::ostream &operator<<(std::ostream &os, const Book &book)
+{
+    os<<book.m_name<<","<<book.m_genres<<","<<book.m_year<<","<<book.m_price<<","<<book.m_discribtion;
+    return os;
 }
